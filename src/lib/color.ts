@@ -16,6 +16,10 @@ export default class ColorWrapper {
     return Math.round(value).toString(16).padStart(2, '0').toUpperCase();
   }
 
+  private _isDefined(val: any) {
+    return val !== undefined;
+  }
+
 
   // ----- Serializers ---------------------------------------------------------
 
@@ -81,151 +85,250 @@ export default class ColorWrapper {
   alpha(): number;
   alpha(val: number): ColorWrapper;
   alpha(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.alpha(val)) : this._color.alpha();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.alpha(val));
+    }
+    return this._color.alpha();
   }
 
   red(): number;
   red(val: number): ColorWrapper;
   red(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.red(val)) : this._color.red();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.red(val));
+    }
+
+    return this._color.red();
   }
 
   green(): number;
   green(val: number): ColorWrapper;
   green(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.green(val)) : this._color.green();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.green(val));
+    }
+
+    return this._color.green();
   }
 
   blue(): number;
   blue(val: number): ColorWrapper;
   blue(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.blue(val)) : this._color.blue();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.blue(val));
+    }
+
+    return this._color.blue();
   }
 
   hue(): number;
   hue(val: number): ColorWrapper;
   hue(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.hue(val)) : this._color.hue();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.hue(val));
+    }
+
+    return this._color.hue();
   }
 
   saturationl(): number;
   saturationl(val: number): ColorWrapper;
   saturationl(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.saturationl(val)) : this._color.saturationl();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.saturationl(val));
+    }
+
+    return this._color.saturationl();
   }
 
   lightness(): number;
   lightness(val: number): ColorWrapper;
   lightness(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.lightness(val)) : this._color.lightness();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.lightness(val));
+    }
+
+    return this._color.lightness();
   }
 
   saturationv(): number;
   saturationv(val: number): ColorWrapper;
   saturationv(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.saturationv(val)) : this._color.saturationv();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.saturationv(val));
+    }
+
+    return this._color.saturationv();
   }
 
   value(): number;
   value(val: number): ColorWrapper;
   value(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.value(val)) : this._color.value();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.value(val));
+    }
+
+    return this._color.value();
   }
 
   chroma(): number;
   chroma(val: number): ColorWrapper;
   chroma(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.chroma(val)) : this._color.chroma();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.chroma(val));
+    }
+
+    return this._color.chroma();
   }
 
   gray(): number;
   gray(val: number): ColorWrapper;
   gray(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.gray(val)) : this._color.gray();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.gray(val));
+    }
+
+    return this._color.gray();
   }
 
   white(): number;
   white(val: number): ColorWrapper;
   white(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.white(val)) : this._color.white();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.white(val));
+    }
+
+    return this._color.white();
   }
 
   wblack(): number;
   wblack(val: number): ColorWrapper;
   wblack(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.wblack(val)) : this._color.wblack();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.wblack(val));
+    }
+
+    return this._color.wblack();
   }
 
   cyan(): number;
   cyan(val: number): ColorWrapper;
   cyan(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.cyan(val)) : this._color.cyan();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.cyan(val));
+    }
+
+    return this._color.cyan();
   }
 
   magenta(): number;
   magenta(val: number): ColorWrapper;
   magenta(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.magenta(val)) : this._color.magenta();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.magenta(val));
+    }
+
+    return this._color.magenta();
   }
 
   yellow(): number;
   yellow(val: number): ColorWrapper;
   yellow(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.yellow(val)) : this._color.yellow();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.yellow(val));
+    }
+
+    return this._color.yellow();
   }
 
   black(): number;
   black(val: number): ColorWrapper;
   black(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.black(val)) : this._color.black();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.black(val));
+    }
+
+    return this._color.black();
   }
 
   x(): number;
   x(val: number): ColorWrapper;
   x(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.x(val)) : this._color.x();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.x(val));
+    }
+
+    return this._color.x();
   }
 
   y(): number;
   y(val: number): ColorWrapper;
   y(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.y(val)) : this._color.y();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.y(val));
+    }
+
+    return this._color.y();
   }
 
   z(): number;
   z(val: number): ColorWrapper;
   z(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.z(val)) : this._color.z();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.z(val))
+    }
+
+    return this._color.z();
   }
 
   l(): number;
   l(val: number): ColorWrapper;
   l(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.l(val)) : this._color.l();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.l(val));
+    }
+
+    return this._color.l();
   }
 
   a(): number;
   a(val: number): ColorWrapper;
   a(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.a(val)) : this._color.a();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.a(val));
+    }
+
+    return this._color.a();
   }
 
   b(): number;
   b(val: number): ColorWrapper;
   b(val?: number): ColorWrapper | number {
-    return val ? new ColorWrapper(this._color.b(val)) : this._color.b();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.b(val));
+    }
+
+    return this._color.b();
   }
 
   keyword(): string;
   keyword(val: string): ColorWrapper;
   keyword(val?: string): ColorWrapper | string {
-    return val ? new ColorWrapper(this._color.keyword(val)) : this._color.keyword();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.keyword(val));
+    }
+
+    return this._color.keyword();
   }
 
   hex(): string;
   hex(val: string): ColorWrapper;
   hex(val?: string): ColorWrapper | string {
-    return val ? new ColorWrapper(this._color.hex(val)) : this._color.hex();
+    if (val !== undefined) {
+      return new ColorWrapper(this._color.hex(val));
+    }
+
+    return this._color.hex();
   }
 
 
