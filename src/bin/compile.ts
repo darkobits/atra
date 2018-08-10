@@ -4,38 +4,76 @@ import path from 'path';
 import fs from 'fs-extra';
 import yargs from 'yargs';
 import log from 'lib/log';
+import pkgInfo from 'lib/pkg-info';
 
 
-const {themeFile, outDir} = yargs
-.option('theme-file', {
+const argv = yargs
+.option('in-file', {
   type: 'string',
   required: true
 })
-.option('out-dir', {
+.option('out-file', {
   type: 'string',
   required: true
 })
 .argv;
 
 
+/**
+ * Provided a path to a module, requires the module. If the module contains a
+ * "default" export, the default export is returned. Otherwise, the module is
+ * returned as-is.
+ */
 function requireDefault(modulePath: string): any {
-  const module = require(modulePath);
+  const module = require(path.resolve(modulePath));
   return module.default ? module.default : module;
 }
 
 
-async function writeTheme(outPath: string, theme: any): Promise<void> {
-  await fs.writeJson(outPath, theme, {spaces: 2});
+/**
+ * Updates the local project's package.json such that the "label" for the theme
+ * is synchronized to the "version" in package.json.
+ */
+async function updatePackageJson() {
+  const {root, json} = await pkgInfo();
+
+  if (json.contributes && json.contributes.themes) {
+    json.contributes.themes = json.contributes.themes.map((themeDescriptor: any) => ({
+      ...themeDescriptor,
+      label: `${json.displayName} (${json.version})`,
+    }));
+  }
+
+  const outPath = path.resolve(root, 'package.json');
+  await fs.writeJson(outPath, json, {spaces: 2});
+  log.verbose('pkg', `Wrote updated package.json to ${outPath}`);
 }
 
 
-async function compileTheme(): Promise<void> {
-  const outFile = `${path.resolve(outDir, path.parse(themeFile).name)}.json`;
+/**
+ * Reads a theme from the input file
+ */
+async function compileTheme(inFile: string, outFile: string): Promise<void> {
+  try {
+    await updatePackageJson();
 
-  await fs.ensureFile(outFile);
-  await writeTheme(outFile, requireDefault(path.resolve(themeFile)));
-  log.info('compile', path.relative(process.cwd(), outFile));
+    // Require the indicated theme module.
+    const theme = requireDefault(inFile);
+
+    // Compute the absolute path to the desired output file.
+    const absOutFile = path.resolve(outFile);
+
+    // Ensure the output file exists before we write to it (ie: touch).
+    await fs.ensureFile(absOutFile);
+
+    // Write theme.
+    await fs.writeJson(absOutFile, theme, {spaces: 2});
+
+    log.info('compile', path.relative(process.cwd(), path.resolve(outFile)));
+  } catch (err) {
+    log.error('compile', `Error during compilation: ${err.stack}`);
+  }
 }
 
 
-export default compileTheme();
+export default compileTheme(argv.inFile, argv.outFile);

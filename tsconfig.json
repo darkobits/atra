@@ -16,8 +16,7 @@
 
     // Specify a list of built-in API groups to include in the project.
     "lib": [
-      "esnext",
-      "es2017.string"
+      "esnext"
     ],
 
 

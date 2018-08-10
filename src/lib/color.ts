@@ -16,10 +16,6 @@ export default class ColorWrapper {
     return Math.round(value).toString(16).padStart(2, '0').toUpperCase();
   }
 
-  private _isDefined(val: any) {
-    return val !== undefined;
-  }
-
 
   // ----- Serializers ---------------------------------------------------------
 
@@ -275,7 +271,7 @@ export default class ColorWrapper {
   z(val: number): ColorWrapper;
   z(val?: number): ColorWrapper | number {
     if (val !== undefined) {
-      return new ColorWrapper(this._color.z(val))
+      return new ColorWrapper(this._color.z(val));
     }
 
     return this._color.z();

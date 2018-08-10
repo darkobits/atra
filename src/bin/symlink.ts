@@ -3,8 +3,8 @@
 import path from 'path';
 import os from 'os';
 import fs from 'fs-extra';
-import pkgDir from 'pkg-dir';
 import log from 'lib/log';
+import pkgInfo from 'lib/pkg-info';
 
 
 /**
@@ -12,25 +12,20 @@ import log from 'lib/log';
  * local project root.
  */
 async function createSymlink() {
-  const PKG_ROOT = await pkgDir();
+  const {root, json} = await pkgInfo();
 
-  if (!PKG_ROOT) {
-    throw new Error(`[symlink] Unable to determine package root.`);
-  }
-
-  const PKG = await fs.readJSON(path.resolve(PKG_ROOT, 'package.json'));
-  const EXTENSIONS_PATH = path.resolve(os.homedir(), '.vscode', 'extensions');
-  const THEME_DIRNAME = `${PKG.publisher.toLowerCase()}.${PKG.displayName.toLowerCase()}-${PKG.version}`;
-  const THEME_PATH = path.resolve(EXTENSIONS_PATH, THEME_DIRNAME);
+  const extensionsPath = path.resolve(os.homedir(), '.vscode', 'extensions');
+  const themeDirName = `${json.publisher.toLowerCase()}.${json.displayName.toLowerCase()}-${json.version}`;
+  const absThemeDir = path.resolve(extensionsPath, themeDirName);
 
   try {
-    await fs.unlink(THEME_PATH);
+    await fs.unlink(absThemeDir);
   } catch (err) { // tslint:disable-line no-unused
     // Link did not exist.
   }
 
-  await fs.symlink(PKG_ROOT, THEME_PATH);
-  log.info('symlink', THEME_PATH, '=>', PKG_ROOT);
+  await fs.symlink(root, absThemeDir);
+  log.info('symlink', absThemeDir, '=>', root);
 }
 
 

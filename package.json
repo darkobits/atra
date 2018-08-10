@@ -1,13 +1,13 @@
 {
-  "name": "@darkobits/atra",
+  "name": "@darkobits/astra",
   "version": "0.1.3",
-  "displayName": "Atra",
+  "displayName": "Astra",
   "publisher": "darkobits",
   "description": "A VS Code theme.",
   "license": "WTFPL",
   "repository": {
     "type": "git",
-    "url": "https://github.com/darkobits/atra"
+    "url": "https://github.com/darkobits/astra"
   },
   "engines": {
     "vscode": "*"
@@ -18,9 +18,9 @@
   "contributes": {
     "themes": [
       {
-        "label": "Atra",
+        "label": "Astra (0.1.3)",
         "uiTheme": "vs-dark",
-        "path": "./dist/atra.json"
+        "path": "./dist/astra.json"
       }
     ]
   },
@@ -34,14 +34,15 @@
     "test": "jest",
     "prebuild": "run-p clean check:*",
     "build": "babel src --extensions='.ts' --out-dir dist",
-    "compile": "./dist/bin/compile.js --theme-file=./dist/atra.js --out-dir=dist",
+    "compile": "./dist/bin/compile.js --in-file=./dist/index.js --out-file=./dist/astra.json",
     "symlink": "./dist/bin/symlink.js",
     "prebump": "run-s build compile",
     "bump": "standard-version",
     "bump:beta": "npm run prebump && standard-version --prerelease=beta",
     "postinstall": "if-not-dev run-s symlink compile",
     "prepare": "run-s build symlink compile",
-    "start": "nodemon --watch src --exec \"babel-node --extensions='.ts'\" ./src/bin/compile.ts --theme-file=./src/atra.ts --out-dir=./dist"
+    "prestart": "npm run prepare",
+    "start": "nodemon --watch src --exec \"babel-node --extensions='.ts'\" ./src/bin/compile.ts --in-file=./src/index.ts --out-file=./dist/astra.json"
   },
   "dependencies": {
     "@darkobits/is-dev": "^0.6.0",
