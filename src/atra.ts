@@ -671,7 +671,7 @@ export default {
 
     // Colors when debugging.
     'statusBar.debuggingForeground': green.alpha(0.86),
-    'statusBar.debuggingBackground': darkGray1, // yellow.desaturate(0.64).darken(0.48),
+    'statusBar.debuggingBackground': darkGray1,
     'statusBar.debuggingBorder': gray1,
 
 
