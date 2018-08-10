@@ -27,7 +27,6 @@
   "files": [
     "dist"
   ],
-  "main": "dist/atra.json",
   "scripts": {
     "clean": "del dist",
     "check:styles": "tslint --project tsconfig.json --format codeFrame",
