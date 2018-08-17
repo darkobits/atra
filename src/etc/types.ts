@@ -1,7 +1,7 @@
 import Color from 'lib/color';
 
 
-export interface AtraOptions {
+export interface AstraOptions {
   /**
    * Customizable accent color used in various places throughout the theme.
    */

@@ -1,5 +1,5 @@
 {
-  "name": "@darkobits/astra",
+  "name": "astra",
   "version": "0.1.3",
   "displayName": "Astra",
   "publisher": "darkobits",
@@ -10,7 +10,7 @@
     "url": "https://github.com/darkobits/astra"
   },
   "engines": {
-    "vscode": "*"
+    "vscode": "^1.25.0"
   },
   "categories": [
     "Themes"
@@ -42,7 +42,8 @@
     "postinstall": "if-not-dev run-s symlink compile",
     "prepare": "run-s build symlink compile",
     "prestart": "npm run prepare",
-    "start": "nodemon --watch src --exec \"babel-node --extensions='.ts'\" ./src/bin/compile.ts --in-file=./src/index.ts --out-file=./dist/astra.json"
+    "start": "nodemon --watch src --exec \"babel-node --extensions='.ts'\" ./src/bin/compile.ts --in-file=./src/index.ts --out-file=./dist/astra.json",
+    "vscode:prepublish": "npm run prepare"
   },
   "dependencies": {
     "@darkobits/is-dev": "^0.6.0",

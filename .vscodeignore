@@ -1,0 +1,16 @@
+# Files that will be ignored when packaging the extension for the Visual Studio
+# Marketplace.
+.vscode/
+dist/etc/
+dist/lib/
+dist/bin/
+dist/astra.js
+dist/index.js
+node_modules/
+src/
+.env
+.babelrc
+.gitignore
+package-lock.json
+tsconfig.json
+tslint.json

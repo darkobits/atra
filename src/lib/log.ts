@@ -1,3 +1,3 @@
 import LogFactory from '@darkobits/log';
 
-export default LogFactory('atra');
+export default LogFactory('astra');
