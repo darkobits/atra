@@ -102,7 +102,8 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
       'comment',
       'comment.block.documentation',
       'comment.block.documentation storage.type.class',
-      'punctuation.definition.comment'
+      'punctuation.definition.comment',
+      'comment entity.name.type'
     ]
   });
 
