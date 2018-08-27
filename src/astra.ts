@@ -776,7 +776,10 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
     'panel.background': asBackgroundColor(gray0),
     'panel.dropBackground': asBackgroundColor(gray2),
-    'panel.border': asBackgroundColor(gray0),
+
+    // This is the border between panels and other elements, but also the border
+    // between multiple panels, such as multiple terminal panes.
+    'panel.border': asBackgroundColor(gray0).lighten(0.64),
 
     // Panel titles (tabs).
     'panelTitle.activeForeground': asForegroundColor(gray8),
