@@ -4,7 +4,7 @@ import path from 'path';
 import os from 'os';
 import fs from 'fs-extra';
 import log from 'lib/log';
-import pkgInfo from 'lib/pkg-info';
+import pkgInfo, {unscopedName} from 'lib/pkg-info';
 
 
 /**
@@ -14,8 +14,11 @@ import pkgInfo from 'lib/pkg-info';
 async function createSymlink() {
   const {root, json} = await pkgInfo();
 
+  const name = unscopedName(json.name);
+  const publisher = (json.publisher || json.author).toLowerCase();
+
   const extensionsPath = path.resolve(os.homedir(), '.vscode', 'extensions');
-  const themeDirName = `${json.publisher.toLowerCase()}.${json.displayName.toLowerCase()}-${json.version}`;
+  const themeDirName = `${publisher}.${name}-${json.version}`;
   const absThemeDir = path.resolve(extensionsPath, themeDirName);
 
   try {

@@ -5,7 +5,8 @@ import fs from 'fs-extra';
 import yargs from 'yargs';
 
 import log from 'lib/log';
-import pkgInfo from 'lib/pkg-info';
+import pkgInfo, {unscopedName} from 'lib/pkg-info';
+import {capitalize} from 'lib/misc';
 
 
 const argv = yargs
@@ -37,11 +38,12 @@ function requireDefault(modulePath: string): any {
  */
 async function updatePackageJson() {
   const {root, json} = await pkgInfo();
+  const name = capitalize(unscopedName(json.name));
 
   if (json.contributes && json.contributes.themes) {
     json.contributes.themes = json.contributes.themes.map((themeDescriptor: any) => ({
       ...themeDescriptor,
-      label: `${json.displayName} (${json.version})`,
+      label: `${name} (${json.version})`,
     }));
   }
 

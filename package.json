@@ -2,6 +2,7 @@
   "name": "@darkobits/astra",
   "version": "0.1.3",
   "author": "darkobits",
+  "publisher": "darkobits",
   "description": "A VS Code theme.",
   "license": "WTFPL",
   "repository": {
@@ -17,7 +18,7 @@
   "contributes": {
     "themes": [
       {
-        "label": "undefined (0.1.3)",
+        "label": "Astra (0.1.3)",
         "uiTheme": "vs-dark",
         "path": "./dist/astra.json"
       }
