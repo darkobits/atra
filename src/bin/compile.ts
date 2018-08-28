@@ -3,6 +3,7 @@
 import path from 'path';
 import fs from 'fs-extra';
 import yargs from 'yargs';
+
 import log from 'lib/log';
 import pkgInfo from 'lib/pkg-info';
 

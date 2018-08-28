@@ -1,6 +1,11 @@
 import Color from 'lib/color';
 
 
+export interface LooseObject {
+  [index: string]: any;
+}
+
+
 export interface AstraOptions {
   /**
    * Customizable accent color used in various places throughout the theme.

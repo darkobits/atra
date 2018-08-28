@@ -8,7 +8,12 @@
  * - https://github.com/ionutvmi/spacegray-vscode
  * - https://github.com/chriskempson/base16
  */
+import {AstraOptions, LooseObject} from 'etc/types';
 import Color from 'lib/color';
+import merge from 'lib/merge';
+
+
+// ----- Colors ----------------------------------------------------------------
 
 // Primary colors.
 import {gray0, gray1, gray2, gray3, gray4, gray5, gray6, gray7, gray8} from 'etc/colors';
@@ -19,19 +24,12 @@ import {black, green, red, orange, yellow, blue, purple, rust, seafoam} from 'et
 // Tertiary colors.
 import {HOT_PINK, darkRed, white, transparent} from 'etc/colors';
 
-import {AstraOptions} from 'etc/types';
-
-
-const merge = (a: object, b: object): void => {
-  Object.assign(a, b);
-};
-
 
 export default ({accentColor, useItalic, modifyForeground, modifyBackground}: AstraOptions) => {
   const asForegroundColor = (color: Color): Color => modifyForeground ? modifyForeground(color) : color;
   const asBackgroundColor = (color: Color): Color => modifyBackground ? modifyBackground(color) : color;
 
-  const theme: any = {tokenColors: [], colors: {}};
+  const theme: LooseObject = {tokenColors: [], colors: {}};
 
 
   // ===== Metadata ============================================================
@@ -109,6 +107,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     },
     scope: [
       'meta.function-call',
+      'meta.function-call entity.name.function',
       'meta.method-call meta.function support.type.object',
       'meta.method-call entity.name.function',
       'entity.quasi meta.function-call',
@@ -354,7 +353,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
   theme.tokenColors.push({
     name: 'Tags',
     settings: {
-      foreground: asForegroundColor(red)
+      foreground: asForegroundColor(red).saturate(0.16)
     },
     scope: 'entity.name.tag'
   });
@@ -663,7 +662,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
       'meta.interface entity.name.type.interface',
       // Captures type names in Go, but may need to be made more specific if
       // it causes issues elsewhere.
-      'entity.name.type'
+      'source.go entity.name.type'
     ]
   });
 
@@ -705,7 +704,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
   // ----- Base Colors ---------------------------------------------------------
 
   merge(theme.colors, {
-    'focusBorder': asForegroundColor(gray4),
+    'focusBorder': asBackgroundColor(gray4).alpha(0.2),
     'foreground': asForegroundColor(gray7),
     'widget.shadow': asBackgroundColor(black).alpha(0.1),
     'selection.background': asBackgroundColor(gray6),
@@ -757,9 +756,9 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   merge(theme.colors, {
     'editor.foreground': asForegroundColor(gray7),
-    'editor.background': asBackgroundColor(gray1),
-    'editor.lineHighlightBackground': asBackgroundColor(gray5).alpha(0.06),
-    'editorCursor.foreground': asForegroundColor(purple),
+    'editor.background': asBackgroundColor(gray1).darken(0.08),
+    'editor.lineHighlightBackground': asBackgroundColor(gray1).lighten(0.08),
+    'editorCursor.foreground': asForegroundColor(accentColor).desaturate(0.48),
     'editorWhitespace.foreground': asForegroundColor(gray5),
 
     // Indent guides.
@@ -781,7 +780,9 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     // Background color when manually selecting text with the cursor.
     'editor.selectionBackground': asBackgroundColor(gray5).alpha(0.12),
 
-    // Unable to produce this.
+    // Unable to produce this. May be related to:
+    // https://github.com/Microsoft/vscode/issues/36490
+    // https://github.com/Microsoft/vscode/issues/34105
     'editor.selectionForeground': asForegroundColor(HOT_PINK),
 
     // 1. Background color applied to tokens in the current document matching
@@ -806,7 +807,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
     // Background color applied to all 'inactive' tokens matching the current
     // Find query.
-    'editor.findMatchHighlightBackground': asBackgroundColor(gray5).alpha(0.06),
+    'editor.findMatchHighlightBackground': asBackgroundColor(gray5).alpha(0.12),
 
     // 1. When the cursor is inside a symbol, this background color will be
     //    applied to all locations where that symbol is read-from. Note that
@@ -857,6 +858,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   merge(theme.colors, {
     'editorGroup.dropBackground': asBackgroundColor(gray1),
+    // Only visible when multiple editor groups are active.
     'editorGroup.border': asBackgroundColor(gray3),
     'editorGroup.emptyBackground': asBackgroundColor(gray1)
   });
@@ -866,10 +868,10 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   merge(theme.colors, {
     'editorLineNumber.foreground': asForegroundColor(gray5).desaturate(0.08),
-    'editorGutter.background': asBackgroundColor(gray1).darken(0.16), // ..desaturate(0.32),
-    'editorGutter.modifiedBackground': asBackgroundColor(purple).alpha(0.6),
-    'editorGutter.addedBackground': asBackgroundColor(green).alpha(0.6),
-    'editorGutter.deletedBackground': asBackgroundColor(red).alpha(0.6)
+    'editorGutter.background': asBackgroundColor(gray1).darken(0.16),
+    'editorGutter.modifiedBackground': asForegroundColor(purple).alpha(0.6),
+    'editorGutter.addedBackground': asForegroundColor(green).alpha(0.6),
+    'editorGutter.deletedBackground': asForegroundColor(red).alpha(0.6)
   });
 
 
@@ -909,8 +911,8 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
   merge(theme.colors, {
     // This color also controls the command palette dropdown.
     'sideBar.foreground': asForegroundColor(gray4).lighten(0.16),
-    'sideBar.background': asBackgroundColor(gray0).lighten(0.12).desaturate(0.08),
-    'sideBar.border': asBackgroundColor(gray0),
+    'sideBar.background': asBackgroundColor(gray0).desaturate(0.08),
+    'sideBar.border': asBackgroundColor(gray0).lighten(0.42),
 
     'sideBarSectionHeader.background': asBackgroundColor(gray1),
     'sideBarSectionHeader.foreground': asForegroundColor(gray7),
@@ -919,7 +921,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
     // Drop background when chaning the order of entire sidebar sections (not
     // items in an individual sidebar panel).
-    'sideBar.dropBackground': '#23283050' // FIXME
+    'sideBar.dropBackground': asBackgroundColor(gray0).alpha(0.6)
   });
 
 
@@ -927,7 +929,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   merge(theme.colors, {
     'statusBar.foreground': asBackgroundColor(gray6),
-    'statusBar.background': asBackgroundColor(gray1),
+    'statusBar.background': asBackgroundColor(gray1).darken(0.16),
 
     // Colors when no folder is opened.
     'statusBar.noFolderForeground': asBackgroundColor(gray6),
@@ -946,7 +948,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   merge(theme.colors, {
     // Drop shadow applied to any view to indicate that it has been scrolled.
-    'scrollbar.shadow': asBackgroundColor(black).alpha(0.1),
+    'scrollbar.shadow': asBackgroundColor(black).alpha(0.12),
 
     // Highlight applied to scroll bars and the minimap scroller on the active
     // editor group.
