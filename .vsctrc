@@ -1,0 +1,17 @@
+{
+  // Output theme JSON to this folder. This folder should be listed in our
+  // package.json "files" array.
+  "outDir": "themes",
+
+  // Themes provided by this package.
+  "themes": [{
+    "label": "Astra (${version})",
+    "main": "dist/index.js",
+    "uiTheme": "vs-dark"
+  }, {
+    "type": "precompiled",
+    "label": "My Pre-Compiled Theme (${version})",
+    "main": "dist/my-precompiled-theme.json",
+    "uiTheme": "vs-dark"
+  }]
+}

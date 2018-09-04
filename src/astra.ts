@@ -8,8 +8,8 @@
  * - https://github.com/ionutvmi/spacegray-vscode
  * - https://github.com/chriskempson/base16
  */
+import {Color} from '@darkobits/vsct';
 import {AstraOptions, LooseObject} from 'etc/types';
-import Color from 'lib/color';
 import merge from 'lib/merge';
 
 

@@ -90,5 +90,8 @@ typings/
 # Build artifacts
 dist
 
+# Theme files built by vsct.
+themes
+
 
 /.vscode

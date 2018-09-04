@@ -9,49 +9,23 @@
     "type": "git",
     "url": "https://github.com/darkobits/astra"
   },
-  "engines": {
-    "vscode": "^1.25.0"
-  },
-  "categories": [
-    "Themes"
-  ],
-  "contributes": {
-    "themes": [
-      {
-        "label": "Astra (0.1.3)",
-        "uiTheme": "vs-dark",
-        "path": "./dist/astra.json"
-      }
-    ]
-  },
   "files": [
-    "dist"
+    "themes"
   ],
   "scripts": {
-    "clean": "del dist",
+    "clean": "del dist && del themes",
     "check:styles": "tslint --project tsconfig.json --format codeFrame",
     "check:types": "tsc --noEmit",
-    "test": "jest",
     "prebuild": "run-p clean check:*",
-    "build": "babel src --extensions='.ts' --out-dir dist",
-    "compile": "./dist/bin/compile.js --in-file=./dist/index.js --out-file=./dist/astra.json",
-    "symlink": "./dist/bin/symlink.js",
-    "prebump": "run-s build compile",
-    "bump": "standard-version",
-    "bump:beta": "npm run prebump && standard-version --prerelease=beta",
-    "postinstall": "if-not-dev run-s symlink compile",
-    "prepare": "run-s build symlink compile",
-    "prestart": "npm run prepare",
-    "start": "nodemon --watch src --exec \"babel-node --extensions='.ts'\" ./src/bin/compile.ts --in-file=./src/index.ts --out-file=./dist/astra.json",
-    "vscode:prepublish": "npm run prepare"
+    "build": "babel src --out-dir dist --extensions '.ts' --verbose",
+    "prepare": "npm run build && vsct build && vsct install",
+    "bump": "run-s build && standard-version",
+    "bump:beta": "npm run bump -- --prerelease=beta",
+    "start": "concurrently \"npm run build -- --watch\" \"vsct start\"",
+    "postinstall": "vsct install"
   },
   "dependencies": {
-    "@darkobits/is-dev": "^0.6.0",
-    "color": "^3.0.0",
-    "fs-extra": "^7.0.0",
-    "npm-run-all": "^4.1.3",
-    "pkg-dir": "^3.0.0",
-    "yargs": "^12.0.1"
+    "@darkobits/vsct": "^0.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-rc.3",
@@ -60,15 +34,14 @@
     "@babel/preset-env": "^7.0.0-rc.3",
     "@babel/preset-typescript": "^7.0.0-rc.3",
     "@babel/register": "^7.0.0-rc.3",
-    "@darkobits/log": "^1.1.3",
     "@types/color": "^3.0.0",
     "@types/fs-extra": "^5.0.4",
     "@types/node": "^10.9.2",
-    "@types/pkg-dir": "^2.0.0",
-    "@types/yargs": "^11.1.1",
     "babel-plugin-module-resolver": "^3.1.1",
+    "color": "^3.0.0",
+    "concurrently": "^4.0.1",
     "del-cli": "^1.1.0",
-    "nodemon": "^1.18.3",
+    "npm-run-all": "^4.1.3",
     "standard-version": "^4.4.0",
     "tslint": "^5.11.0",
     "tslint-xo": "^0.9.0",

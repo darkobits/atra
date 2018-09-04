@@ -1,4 +1,4 @@
-import Color from 'lib/color';
+import {Color} from '@darkobits/vsct';
 
 
 // ----- Canonical Colors ------------------------------------------------------
