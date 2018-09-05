@@ -59,6 +59,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
       'string.template support.variable.property',
       'string.template punctuation.definition.block',
       'string.template punctuation.terminator.statement',
+      'string.template meta.object-literal.key',
       // Resets the 'content' attribute in CSS rules.
       'source.css meta.property-list entity.name.tag'
     ]
@@ -673,6 +674,8 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     },
     scope: [
       // 'meta.function meta.return.type',
+      // This cannot be used because it includes any value that is new-ed.
+      // 'entity.name.type.ts',
       'meta.function meta.type',
       'meta.function support.type',
       'meta.interface support.type',
