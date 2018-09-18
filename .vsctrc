@@ -8,10 +8,5 @@
     "label": "Astra (${version})",
     "main": "dist/index.js",
     "uiTheme": "vs-dark"
-  }, {
-    "type": "precompiled",
-    "label": "My Pre-Compiled Theme (${version})",
-    "main": "dist/my-precompiled-theme.json",
-    "uiTheme": "vs-dark"
   }]
 }

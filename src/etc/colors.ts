@@ -1,3 +1,9 @@
+/**
+ * ===== Astra Color Palette ===================================================
+ *
+ * - Canonical colors are derived from the Base-16 color palette.
+ * - Grays are loosely-based on the Base-16 grays.
+ */
 import {Color} from '@darkobits/vsct';
 
 

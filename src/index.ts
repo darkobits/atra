@@ -1,10 +1,10 @@
 import {darkRed} from 'etc/colors';
-import ThemeBuilder from './astra';
+import Astra from './astra';
 
 
-export default ThemeBuilder({
+export default Astra({
   accentColor: darkRed,
   useItalic: true,
-  modifyForeground: color => color.saturate(0.12),
-  modifyBackground: color => color.lighten(0.42)
+  modifyForeground: color => color.saturate(0.24),
+  modifyBackground: color => color.lighten(0.32)
 });
