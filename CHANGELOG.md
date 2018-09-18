@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.4"></a>
+## [0.1.4](https://github.com/darkobits/astra/compare/v0.1.3...v0.1.4) (2018-09-18)
+
+
+### Bug Fixes
+
+* Color uses more robust truthy check. ([1e08dc4](https://github.com/darkobits/astra/commit/1e08dc4))
+
+
+
 <a name="0.1.3"></a>
 ## [0.1.3](https://github.com/darkobits/astra/compare/v0.1.2...v0.1.3) (2018-08-10)
 
