@@ -47,7 +47,8 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
       'string.template punctuation.terminator.statement',
       'string.template meta.object-literal.key',
       // Resets the 'content' attribute in CSS rules.
-      'source.css meta.property-list entity.name.tag'
+      'source.css meta.property-list entity.name.tag',
+      'meta.interface meta.field.declaration variable.object.property'
     ]
   });
 
@@ -282,7 +283,8 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
       'punctuation.definition.string',
       'punctuation.definition.parameters',
       'punctuation.definition.string',
-      'punctuation.definition.array'
+      'punctuation.definition.array',
+      'meta.interface meta.object.type punctuation.definition.block'
     ]
   });
 
