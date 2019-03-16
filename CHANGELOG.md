@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.6"></a>
+## [0.1.6](https://github.com/darkobits/astra/compare/v0.1.5...v0.1.6) (2019-03-16)
+
+
+### Bug Fixes
+
+* Use correct colors for keys and curly braces in interface definitions. ([6c7c3b6](https://github.com/darkobits/astra/commit/6c7c3b6))
+
+
+
 <a name="0.1.5"></a>
 ## [0.1.5](https://github.com/darkobits/astra/compare/v0.1.4...v0.1.5) (2018-09-18)
 
