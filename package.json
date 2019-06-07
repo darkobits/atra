@@ -14,34 +14,19 @@
     ".vsctrc"
   ],
   "scripts": {
-    "clean": "del dist && del themes",
-    "check:styles": "tslint --project tsconfig.json --format codeFrame",
-    "check:types": "tsc --noEmit",
-    "prebuild": "run-p clean check:*",
-    "build": "babel src --out-dir dist --extensions '.ts' --verbose",
-    "postbuild": "vsct compile",
-    "bump": "run-s build && standard-version",
-    "bump:beta": "npm run bump -- --prerelease=beta",
-    "start": "concurrently 'npm run build -- --watch' 'vsct start'",
-    "prepare": "run-s build postinstall",
-    "postinstall": "vsct install"
+    "build": "nps build",
+    "postbuild": "del themes && vsct compile",
+    "prepare": "nps prepare && npm run postinstall",
+    "postinstall": "vsct install",
+    "start": "nps start"
   },
   "dependencies": {
     "@darkobits/vsct": "^0.3.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.1.0",
-    "@babel/core": "^7.1.0",
-    "@babel/preset-env": "^7.1.0",
-    "@babel/preset-typescript": "^7.1.0",
-    "@types/node": "^10.10.3",
-    "babel-plugin-module-resolver": "^3.1.1",
-    "concurrently": "^4.0.1",
+    "@darkobits/ts-unified": "^1.6.0",
+    "@types/node": "^10.14.8",
     "del-cli": "^1.1.0",
-    "npm-run-all": "^4.1.3",
-    "standard-version": "^4.4.0",
-    "tslint": "^5.11.0",
-    "tslint-xo": "^0.9.0",
-    "typescript": "^3.0.3"
+    "nps-utils": "^1.7.0"
   }
 }
