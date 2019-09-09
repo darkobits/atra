@@ -26,7 +26,7 @@
   "devDependencies": {
     "@darkobits/ts-unified": "^1.6.0",
     "@types/node": "^10.14.8",
-    "del-cli": "^1.1.0",
+    "del-cli": "^3.0.0",
     "nps-utils": "^1.7.0"
   }
 }
