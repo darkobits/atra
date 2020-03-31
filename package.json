@@ -16,7 +16,8 @@
   "scripts": {
     "build": "nps build",
     "postbuild": "del themes && vsct compile",
-    "postinstall": "if-dev 'nps prepare' && vsct compile && vsct install",
+    "postinstall": "if-dev 'nps prepare && vsct compile' && vsct install",
+    "prepublishOnly": "vsct compile",
     "start": "nps start"
   },
   "dependencies": {
