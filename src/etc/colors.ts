@@ -30,11 +30,11 @@ export const blue = new Color({
 });
 
 export const purple = new Color({
-  h: 4 * 78, s: 4 * 5, l: 4 * 16
+  h: 4 * 78, s: 4 * 6, l: 4 * 16
 });
 
 export const rust = new Color({
-  h: 4 * 4, s: 4 * 7, l: 4 * 13
+  h: 4 * 4, s: 4 * 8, l: 4 * 13
 });
 
 export const seafoam = new Color({
@@ -93,9 +93,10 @@ export const white = new Color({
 
 export const transparent = black.alpha(0);
 
+// Default accent color for the theme.
 export const darkRed = red.desaturate(0.04).darken(0.27);
 
 // Used for debugging.
 export const HOT_PINK = new Color({
-  h: 4 * 75, s: 4 * 25, l: 4 * 12
+  h: 4 * 74, s: 4 * 24, l: 4 * 12
 });

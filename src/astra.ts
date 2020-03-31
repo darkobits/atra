@@ -8,8 +8,7 @@
  * - https://github.com/ionutvmi/spacegray-vscode
  * - https://github.com/chriskempson/base16
  */
-import Theme, {Color} from '@darkobits/vsct';
-import {AstraOptions} from 'etc/types';
+import ThemeFactory, {Color} from '@darkobits/vsct';
 
 
 // ----- Colors ----------------------------------------------------------------
@@ -24,20 +23,41 @@ import {black, green, red, orange, yellow, blue, purple, rust, seafoam} from 'et
 import {HOT_PINK, darkRed, white, transparent} from 'etc/colors';
 
 
-export default ({accentColor, useItalic, modifyForeground, modifyBackground}: AstraOptions) => new Theme(t => {
-  const asForegroundColor = (color: Color): Color => modifyForeground ? modifyForeground(new Color(color)) : color;
-  const asBackgroundColor = (color: Color): Color => modifyBackground ? modifyBackground(new Color(color)) : color;
+/**
+ * Astra 'factory' that sits in front of ThemeFactory, allowing us to easily
+ * tweak certain global settings in one go.
+ */
+export default () => ThemeFactory(theme => {
+  /**
+   * Accent color to use throughout the theme.
+   */
+  const accentColor = darkRed;
+
+  /**
+   * Whether to use italic fonts in the theme.
+   */
+  const useItalic = true;
+
+  /**
+   * Global foreground color modification function.
+   */
+  const asForegroundColor = (color: any) => new Color(color).saturate(0.24);
+
+  /**
+   * Global background color modification function.
+   */
+  const asBackgroundColor = (color: any) => new Color(color);
 
 
   // ----- Text & Other Foreground ---------------------------------------------
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Text',
     settings: {
       foreground: asForegroundColor(gray7)
     },
     // These scopes contain a few very specific selectors to 'revert' tokens to
-    // being highlighted as text in certain situtaions, such as inside
+    // being highlighted as text in certain situations, such as inside
     // interpolated string literals.
     scope: [
       'variable.parameter.function',
@@ -52,7 +72,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Variables',
     settings: {
       foreground: asForegroundColor(gray7)
@@ -69,7 +89,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Functions -----------------------------------------------------------
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Functions',
     settings: {
       foreground: asForegroundColor(blue)
@@ -88,7 +108,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Function Calls',
     settings: {
       foreground: asForegroundColor(gray7)
@@ -107,7 +127,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Function Parameters',
     settings: {
       foreground: asForegroundColor(gray7)
@@ -120,7 +140,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Primitives ----------------------------------------------------------
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Numbers',
     settings: {
       foreground: asForegroundColor(orange)
@@ -128,7 +148,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     scope: 'constant.numeric'
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Boolean',
     settings: {
       foreground: asForegroundColor(orange)
@@ -136,7 +156,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     scope: 'constant.language.boolean'
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Constants',
     settings: {
       foreground: asForegroundColor(orange)
@@ -147,7 +167,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Strings -------------------------------------------------------------
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Strings, Inherited Class',
     settings: {
       foreground: asForegroundColor(green).alpha(0.86)
@@ -166,7 +186,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Interpolated Strings (Begin/End Tokens)',
     settings: {
       foreground: asForegroundColor(blue)
@@ -184,7 +204,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Classes -------------------------------------------------------------
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Classes / Support',
     settings: {
       foreground: asForegroundColor(yellow)
@@ -195,7 +215,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Inherited Class',
     settings: {
       foreground: asForegroundColor(green).alpha(0.86)
@@ -205,7 +225,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Methods',
     settings: {
       foreground: asForegroundColor(blue)
@@ -218,7 +238,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Keywords & Other Control Flow ---------------------------------------
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Keywords',
     settings: {
       foreground: asForegroundColor(purple),
@@ -240,7 +260,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Storage',
     settings: {
       foreground: asForegroundColor(purple),
@@ -272,7 +292,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Punctuation, Delimiters, Operators, Braces --------------------------
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Punctuation',
     settings: {
       foreground: asForegroundColor(gray7)
@@ -288,10 +308,10 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Braces & Parens',
     settings: {
-      foreground: asForegroundColor(gray7).darken(0.2)
+      foreground: asForegroundColor(gray7).darken(0.24)
     },
     scope: [
       'meta.brace.curly',
@@ -300,7 +320,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  // t.tokenColors.add({
+  // theme.tokenColors.add({
   //   name: 'Delimiters',
   //   settings: {
   //     foreground: asForegroundColor(gray7)
@@ -309,7 +329,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
   //   // scope: 'none'
   // });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Operators',
     settings: {
       foreground: asForegroundColor(gray7)
@@ -317,7 +337,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     scope: 'keyword.operator'
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Unquoted Object Keys',
     settings: {
       foreground: asForegroundColor(gray7)
@@ -328,7 +348,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Separator',
     settings: {
       foreground: asForegroundColor(gray7)
@@ -339,7 +359,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Markup-Related ------------------------------------------------------
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Tags',
     settings: {
       foreground: asForegroundColor(red).saturate(0.16)
@@ -347,7 +367,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     scope: 'entity.name.tag'
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Attributes',
     settings: {
       foreground: asForegroundColor(orange)
@@ -355,7 +375,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     scope: 'entity.other.attribute-name'
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Attribute IDs',
     settings: {
       foreground: asForegroundColor(blue)
@@ -366,7 +386,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Headings',
     settings: {
       foreground: asForegroundColor(blue)
@@ -377,7 +397,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Bold',
     settings: {
       fontStyle: 'bold',
@@ -389,7 +409,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Italic',
     settings: {
       fontStyle: 'italic',
@@ -401,7 +421,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Code',
     settings: {
       foreground: asForegroundColor(green)
@@ -409,7 +429,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     scope: 'markup.raw.inline'
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Lists',
     settings: {
       foreground: asForegroundColor(red)
@@ -417,7 +437,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     scope: 'markup.list'
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Quotes',
     settings: {
       foreground: asForegroundColor(orange)
@@ -425,7 +445,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     scope: 'markup.quote'
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Inserted',
     settings: {
       foreground: asForegroundColor(green)
@@ -436,7 +456,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Deleted',
     settings: {
       foreground: asForegroundColor(red)
@@ -447,7 +467,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Changed',
     settings: {
       foreground: asForegroundColor(purple)
@@ -458,7 +478,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Ignored',
     settings: {
       foreground: asForegroundColor(gray4)
@@ -469,7 +489,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Untracked',
     settings: {
       foreground: asForegroundColor(gray4)
@@ -483,7 +503,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- CSS-Related ---------------------------------------------------------
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'SCSS/LESS Variables',
     settings: {
       foreground: asForegroundColor(red)
@@ -496,7 +516,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'SCSS Mixins/Functions',
     settings: {
       foreground: asForegroundColor(blue)
@@ -507,7 +527,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Selector',
     settings: {
       foreground: asForegroundColor(purple)
@@ -515,7 +535,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     scope: 'meta.selector'
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Units',
     settings: {
       foreground: asForegroundColor(orange)
@@ -523,7 +543,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     scope: 'keyword.other.unit'
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Colors',
     settings: {
       foreground: asForegroundColor(seafoam)
@@ -534,7 +554,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Exotics / One-Offs --------------------------------------------------
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Regular Expressions',
     settings: {
       foreground: asForegroundColor(seafoam)
@@ -544,7 +564,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // This helps escape characters subtly stand-out when used in green string
   // literals.
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Escape Characters',
     settings: {
       foreground: asForegroundColor(seafoam)
@@ -553,7 +573,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
   });
 
   // Make 'this' references visually loud.
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'This',
     settings: {
       foreground: asForegroundColor(darkRed),
@@ -565,10 +585,10 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Comments ------------------------------------------------------------
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Comments',
     settings: {
-      foreground: asForegroundColor(gray6).darken(0.28).desaturate(0.2)
+      foreground: asForegroundColor(gray6).darken(0.28).desaturate(0.24)
     },
     scope: [
       'comment',
@@ -582,7 +602,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Miscellany ----------------------------------------------------------
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Support',
     settings: {
       foreground: asForegroundColor(seafoam)
@@ -590,7 +610,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     scope: 'support.function'
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Link Text',
     settings: {
       foreground: asForegroundColor(red)
@@ -598,7 +618,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     scope: 'string.other.link'
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Link URL',
     settings: {
       foreground: asForegroundColor(orange)
@@ -606,7 +626,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     scope: 'meta.link'
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Console',
     settings: {
       foreground: asForegroundColor(yellow)
@@ -616,7 +636,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Embedded',
     settings: {
       foreground: asForegroundColor(rust)
@@ -627,7 +647,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Invalid',
     settings: {
       foreground: asForegroundColor(white)
@@ -638,7 +658,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Type-Related --------------------------------------------------------
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Type/Interface Names',
     settings: {
       foreground: asForegroundColor(yellow)
@@ -646,7 +666,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     scope: [
       'support.type.object.console',
       'meta.entity.new.name.expr',
-      'meta.namespcae.declaration',
+      'meta.namespace.declaration',
       'meta.type entity.name.type.alias',
       'meta.interface entity.name.type.interface',
       // Captures type names in Go, but may need to be made more specific if
@@ -655,7 +675,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Type Annotations',
     settings: {
       foreground: asForegroundColor(rust)
@@ -677,7 +697,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     ]
   });
 
-  t.tokenColors.add({
+  theme.tokenColors.add({
     name: 'Global Namespace',
     settings: {
       foreground: asForegroundColor(seafoam)
@@ -691,10 +711,10 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Base Colors ---------------------------------------------------------
 
-  t.colors.add({
-    'focusBorder': asBackgroundColor(gray4).alpha(0.2),
+  theme.colors.add({
+    'focusBorder': asBackgroundColor(gray4).alpha(0.24),
     'foreground': asForegroundColor(gray7),
-    'widget.shadow': asBackgroundColor(black).alpha(0.1),
+    'widget.shadow': asBackgroundColor(black).alpha(0.12),
     'selection.background': asBackgroundColor(gray6),
     'descriptionForeground': asForegroundColor(gray6),
     'errorForeground': asForegroundColor(red),
@@ -704,7 +724,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Text Colors ---------------------------------------------------------
 
-  t.colors.add({
+  theme.colors.add({
     'textBlockQuote.border': asBackgroundColor(orange),
     'textLink.foreground': asForegroundColor(blue),
     'textLink.activeForeground': asForegroundColor(gray8)
@@ -713,7 +733,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Window Chrome -------------------------------------------------------
 
-  t.colors.add({
+  theme.colors.add({
     'editorGroupHeader.tabsBackground': asBackgroundColor(gray0),
     'titleBar.inactiveBackground': asBackgroundColor(gray1),
     'titleBar.activeBackground': asBackgroundColor(gray1),
@@ -723,7 +743,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Editor Tabs ---------------------------------------------------------
 
-  t.colors.add({
+  theme.colors.add({
     'tab.border': asBackgroundColor(gray0),
 
     // Active tab.
@@ -742,7 +762,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Editor --------------------------------------------------------------
 
-  t.colors.add({
+  theme.colors.add({
     'editor.foreground': asForegroundColor(gray7),
     'editor.background': asBackgroundColor(gray1).darken(0.08).saturate(0.12),
     'editor.lineHighlightBackground': asBackgroundColor(gray1).lighten(0.08),
@@ -764,7 +784,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Editor - Token Highlighting -----------------------------------------
 
-  t.colors.add({
+  theme.colors.add({
     // Background color when manually selecting text with the cursor.
     'editor.selectionBackground': asBackgroundColor(gray5).alpha(0.12),
 
@@ -784,10 +804,10 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
     // 1. Background color applied to a selected block of text when the editor
     //    loses focus.
-    // 2. Background color applied to a single slected token matching the
+    // 2. Background color applied to a single selected token matching the
     //    current Find query (the user can iterate through matches using forward
     //    and backward arrows).
-    'editor.inactiveSelectionBackground': asBackgroundColor(gray5).alpha(0.2),
+    'editor.inactiveSelectionBackground': asBackgroundColor(gray5).alpha(0.24),
 
     // Background color applied to the 'active' token matching the current Find
     // query.
@@ -818,7 +838,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Editor - Squiggles --------------------------------------------------
 
-  t.colors.add({
+  theme.colors.add({
     'editorError.foreground': asForegroundColor(red).alpha(0.48),
     'editorWarning.foreground': asForegroundColor(yellow).alpha(0.48)
   });
@@ -826,7 +846,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Editor Widgets ------------------------------------------------------
 
-  t.colors.add({
+  theme.colors.add({
     'editorWidget.background': asBackgroundColor(gray0),
     'editorWidget.border': asBackgroundColor(gray3),
     'editorHoverWidget.background': asBackgroundColor(gray0),
@@ -836,7 +856,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Debug Toolbar -------------------------------------------------------
 
-  t.colors.add({
+  theme.colors.add({
     'debugToolBar.background': asBackgroundColor(gray0),
     'debugToolBar.border': asBackgroundColor(gray2)
   });
@@ -844,7 +864,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Editor Groups -------------------------------------------------------
 
-  t.colors.add({
+  theme.colors.add({
     'editorGroup.dropBackground': asBackgroundColor(gray1),
     // Only visible when multiple editor groups are active.
     'editorGroup.border': asBackgroundColor(gray3),
@@ -854,19 +874,19 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Gutter --------------------------------------------------------------
 
-  t.colors.add({
+  theme.colors.add({
     'editorLineNumber.foreground': asForegroundColor(gray5).desaturate(0.08),
-    'editorGutter.background': asBackgroundColor(gray1).darken(0.16),
-    'editorGutter.modifiedBackground': asForegroundColor(purple).alpha(0.6),
-    'editorGutter.addedBackground': asForegroundColor(green).alpha(0.6),
-    'editorGutter.deletedBackground': asForegroundColor(red).alpha(0.6)
+    'editorGutter.background': asBackgroundColor(gray1).darken(0.24),
+    'editorGutter.modifiedBackground': asForegroundColor(purple).alpha(0.64),
+    'editorGutter.addedBackground': asForegroundColor(green).alpha(0.64),
+    'editorGutter.deletedBackground': asForegroundColor(red).alpha(0.64)
   });
 
 
   // ----- Panels (Terminal, etc.) ---------------------------------------------
 
-  t.colors.add({
-    'panel.background': asBackgroundColor(gray0),
+  theme.colors.add({
+    'panel.background': asBackgroundColor(gray0).darken(0.24),
     'panel.dropBackground': asBackgroundColor(gray2),
 
     // This is the border between panels and other elements, but also the border
@@ -882,7 +902,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Activity Bar (Far Left or Far Right) --------------------------------
 
-  t.colors.add({
+  theme.colors.add({
     'activityBar.foreground': asBackgroundColor(gray5),
     'activityBar.background': asBackgroundColor(gray1),
     'activityBar.border': asBackgroundColor(gray0),
@@ -896,10 +916,10 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Side Bar (Adjacent to Activity Bar) ---------------------------------
 
-  t.colors.add({
+  theme.colors.add({
     // This color also controls the command palette dropdown.
     'sideBar.foreground': asForegroundColor(gray4).lighten(0.16),
-    'sideBar.background': asBackgroundColor(gray0).desaturate(0.08),
+    'sideBar.background': asBackgroundColor(gray0).darken(0.08),
     'sideBar.border': asBackgroundColor(gray0).lighten(0.42),
 
     'sideBarSectionHeader.background': asBackgroundColor(gray1),
@@ -907,15 +927,15 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
     'sideBarTitle.foreground': asForegroundColor(gray6),
 
-    // Drop background when chaning the order of entire sidebar sections (not
+    // Drop background when changing the order of entire sidebar sections (not
     // items in an individual sidebar panel).
-    'sideBar.dropBackground': asBackgroundColor(gray0).alpha(0.6)
+    'sideBar.dropBackground': asBackgroundColor(gray0).alpha(0.64)
   });
 
 
   // ----- Status Bar (Bottom) -------------------------------------------------
 
-  t.colors.add({
+  theme.colors.add({
     'statusBar.foreground': asBackgroundColor(gray6),
     'statusBar.background': asBackgroundColor(gray1).darken(0.16),
 
@@ -926,7 +946,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     'statusBar.border': asBackgroundColor(gray2),
 
     // Colors when debugging.
-    'statusBar.debuggingForeground': asBackgroundColor(green).alpha(0.86),
+    'statusBar.debuggingForeground': asBackgroundColor(green).alpha(0.84),
     'statusBar.debuggingBackground': asBackgroundColor(gray1),
     'statusBar.debuggingBorder': asBackgroundColor(gray2)
   });
@@ -934,7 +954,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Scroll Bars ---------------------------------------------------------
 
-  t.colors.add({
+  theme.colors.add({
     // Drop shadow applied to any view to indicate that it has been scrolled.
     'scrollbar.shadow': asBackgroundColor(black).alpha(0.12),
 
@@ -948,7 +968,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Badges (Non Activity Bar) -------------------------------------------
 
-  t.colors.add({
+  theme.colors.add({
     'badge.background': asForegroundColor(accentColor),
     'badge.foreground': asBackgroundColor(gray8)
   });
@@ -956,14 +976,14 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Lists & Trees -------------------------------------------------------
 
-  t.colors.add({
+  theme.colors.add({
     // Selected item when the list/tree is blurred.
     'list.inactiveSelectionForeground': asForegroundColor(gray7),
     'list.inactiveSelectionBackground': asBackgroundColor(gray2).darken(0.32),
 
     // Selected item when the list/tree has focus.
     'list.activeSelectionForeground': asForegroundColor(gray8),
-    'list.activeSelectionBackground': asBackgroundColor(gray2).darken(0.2),
+    'list.activeSelectionBackground': asBackgroundColor(gray2).darken(0.24),
 
     // Focused/selected item.
     'list.focusForeground': asForegroundColor(gray8),
@@ -977,8 +997,8 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
     'list.dropBackground': asBackgroundColor(gray1),
 
     // Contextual states.
-    'list.errorForeground': asForegroundColor(red).desaturate(0.3).darken(0.2),
-    'list.warningForeground': asForegroundColor(yellow).desaturate(0.6).darken(0.2),
+    'list.errorForeground': asForegroundColor(red).desaturate(0.32).darken(0.24),
+    'list.warningForeground': asForegroundColor(yellow).desaturate(0.64).darken(0.24),
 
     'list.highlightForeground': asForegroundColor(accentColor),
 
@@ -990,7 +1010,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Peek Views ----------------------------------------------------------
 
-  t.colors.add({
+  theme.colors.add({
     'peekView.border': asBackgroundColor(gray4),
     'peekViewEditor.background': asBackgroundColor(gray1),
     'peekViewTitle.background': asBackgroundColor(gray1),
@@ -1003,7 +1023,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Notifications -------------------------------------------------------
 
-  t.colors.add({
+  theme.colors.add({
     'notifications.foreground': asForegroundColor(gray7),
     'notifications.background': asBackgroundColor(gray1),
 
@@ -1019,7 +1039,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Dropdowns -----------------------------------------------------------
 
-  t.colors.add({
+  theme.colors.add({
     'dropdown.background': asBackgroundColor(gray1),
     'dropdown.border': asBackgroundColor(gray2)
   });
@@ -1027,7 +1047,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Inputs --------------------------------------------------------------
 
-  t.colors.add({
+  theme.colors.add({
     'input.foreground': asForegroundColor(gray7),
     'input.background': asBackgroundColor(gray1),
     'input.border': asBackgroundColor(gray3),
@@ -1044,27 +1064,27 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
   // ----- Buttons -------------------------------------------------------------
 
-  t.colors.add({
+  theme.colors.add({
     'button.foreground': asForegroundColor(gray8),
-    'button.background': asBackgroundColor(accentColor).saturate(0.12).darken(0.22),
+    'button.background': asBackgroundColor(accentColor).saturate(0.12).darken(0.24),
     'button.hoverBackground': asBackgroundColor(accentColor).saturate(0.08).darken(0.08)
   });
 
 
   // ----- Git Colors ----------------------------------------------------------
 
-  t.colors.add({
+  theme.colors.add({
     // Color for modified Git resources. Used for file labels and the SCM
     // viewlet.
-    'gitDecoration.modifiedResourceForeground': asForegroundColor(purple).desaturate(0.5).darken(0.3),
+    'gitDecoration.modifiedResourceForeground': asForegroundColor(purple).desaturate(0.48).darken(0.32),
 
     // Color for deleted Git resources. Used for file labels and the SCM
     // viewlet.
-    'gitDecoration.deletedResourceForeground': asForegroundColor(red).desaturate(0.3).darken(0.2),
+    'gitDecoration.deletedResourceForeground': asForegroundColor(red).desaturate(0.32).darken(0.24),
 
     // Color for untracked Git resources. Used for file labels and the SCM
     // viewlet.
-    'gitDecoration.untrackedResourceForeground': asForegroundColor(green).desaturate(0.5).darken(0.3),
+    'gitDecoration.untrackedResourceForeground': asForegroundColor(green).desaturate(0.48).darken(0.32),
 
     // Color for ignored Git resources. Used for file labels and the SCM
     // viewlet.
@@ -1072,7 +1092,7 @@ export default ({accentColor, useItalic, modifyForeground, modifyBackground}: As
 
     // Color for conflicting Git resources. Used for file labels and the SCM
     // viewlet.
-    'gitDecoration.conflictingResourceForeground': asForegroundColor(red).desaturate(0.3).darken(0.2)
+    'gitDecoration.conflictingResourceForeground': asForegroundColor(red).desaturate(0.32).darken(0.24)
 
     // Color for submodule resources.
     // 'gitDecoration.submoduleResourceForeground': ''
