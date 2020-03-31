@@ -25,8 +25,8 @@ import {HOT_PINK, darkRed, white, transparent} from 'etc/colors';
 
 
 export default ({accentColor, useItalic, modifyForeground, modifyBackground}: AstraOptions) => new Theme(t => {
-  const asForegroundColor = (color: Color): Color => modifyForeground ? modifyForeground(color) : color;
-  const asBackgroundColor = (color: Color): Color => modifyBackground ? modifyBackground(color) : color;
+  const asForegroundColor = (color: Color): Color => modifyForeground ? modifyForeground(new Color(color)) : color;
+  const asBackgroundColor = (color: Color): Color => modifyBackground ? modifyBackground(new Color(color)) : color;
 
 
   // ----- Text & Other Foreground ---------------------------------------------
