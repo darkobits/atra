@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.10](https://github.com/darkobits/astra/compare/v0.1.9...v0.1.10) (2020-03-31)
+
+
+### Bug Fixes
+
+* Only compile theme for local development. ([e0ecde6](https://github.com/darkobits/astra/commit/e0ecde6751985a0a76feaa3becf94b52c87ce9ea))
+
 ### [0.1.9](https://github.com/darkobits/astra/compare/v0.1.8...v0.1.9) (2020-03-31)
 
 
