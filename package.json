@@ -11,12 +11,13 @@
   "files": [
     "dist",
     "themes",
-    ".vsctrc"
+    "vsct.config.js"
   ],
   "scripts": {
     "build": "nps build",
     "postbuild": "del themes && vsct compile",
     "prepare": "nps prepare && vsct compile && vsct install",
+    "postinstall": "npm run prepare",
     "start": "nps start"
   },
   "dependencies": {
