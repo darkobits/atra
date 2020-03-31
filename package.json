@@ -16,11 +16,11 @@
   "scripts": {
     "build": "nps build",
     "postbuild": "del themes && vsct compile",
-    "prepare": "nps prepare && vsct compile && vsct install",
-    "postinstall": "npm run prepare",
+    "postinstall": "if-dev 'nps prepare' && vsct compile && vsct install",
     "start": "nps start"
   },
   "dependencies": {
+    "@darkobits/is-dev": "^0.6.0",
     "@darkobits/vsct": "^0.3.2"
   },
   "devDependencies": {
