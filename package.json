@@ -16,17 +16,17 @@
   "scripts": {
     "build": "nps build",
     "postbuild": "del themes && vsct compile",
-    "prepare": "nps prepare && npm run postinstall",
-    "postinstall": "vsct install",
+    "prepare": "nps prepare && vsct compile && vsct install",
     "start": "nps start"
   },
   "dependencies": {
-    "@darkobits/vsct": "^0.3.1"
+    "@darkobits/vsct": "^0.3.2"
   },
   "devDependencies": {
-    "@darkobits/ts-unified": "^1.6.0",
-    "@types/node": "^10.14.8",
-    "del-cli": "^1.1.0",
-    "nps-utils": "^1.7.0"
+    "@darkobits/ts-unified": "^4.0.0-beta.2",
+    "@types/node": "^13.9.8",
+    "del-cli": "^3.0.0",
+    "nps-utils": "^1.7.0",
+    "wait-on": "^4.0.1"
   }
 }
