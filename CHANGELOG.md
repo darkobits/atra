@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.9](https://github.com/darkobits/astra/compare/v0.1.8...v0.1.9) (2020-03-31)
+
+
+### Bug Fixes
+
+* Fix postinstall and prepare scripts. ([a09dc18](https://github.com/darkobits/astra/commit/a09dc188c946ff8419fb2d0d41760039189bee6d))
+
 ### [0.1.8](https://github.com/darkobits/astra/compare/v0.1.7...v0.1.8) (2020-03-31)
 
 ### [0.1.7](https://github.com/darkobits/astra/compare/v0.1.6...v0.1.7) (2019-06-07)
