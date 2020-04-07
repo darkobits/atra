@@ -27,7 +27,7 @@ import {HOT_PINK, darkRed, white, transparent} from 'etc/colors';
  * Astra 'factory' that sits in front of ThemeFactory, allowing us to easily
  * tweak certain global settings in one go.
  */
-export default () => ThemeFactory(theme => {
+export default ThemeFactory(theme => {
   /**
    * Accent color to use throughout the theme.
    */

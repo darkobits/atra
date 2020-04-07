@@ -2,7 +2,7 @@
   <img src="https://user-images.githubusercontent.com/441546/44255341-99bba280-a1ba-11e8-81b9-dcf669d42306.png" style="max-width: 100%">
 </a>
 
-Astra is a theme for Visual Studio Code, heavily-inspired by (could be considered a fork of) the [Spacegray](https://github.com/ionutvmi/spacegray-vscode) / [Base 16 Ocean Dark](https://github.com/chriskempson/base16) themes, available for several IDEs.
+Astra is a theme for Visual Studio Code, heavily-inspired by the Base 16 Ocean Dark palette.
 
 ## Pairs Well With
 
@@ -35,7 +35,12 @@ If you have Node and NPM installed on your system, and would like to customize a
 
 ## Feedback
 
-If you have any issues, especially related to improper syntax highlighting, please open an Issue.
+If you have any issues, especially related to improper syntax highlighting, please [open an Issue](https://github.com/darkobits/astra/issues/new) on GitHub.
+
+## Prior Art
+
+* [Base 16](https://github.com/chriskempson/base16)
+* [Spacegray / Base 16 Ocean Dark](https://github.com/ionutvmi/spacegray-vscode#base-16-ocean-dark)
 
 ## &nbsp;
 <p align="center">
