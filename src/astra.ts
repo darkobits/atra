@@ -668,7 +668,7 @@ export default ThemeFactory(theme => {
     scope: [
       'support.type.object.console',
       'meta.entity.new.name.expr',
-      'meta.namespace.declaration',
+      'meta.namespace.declaration entity.name.type',
       'meta.type entity.name.type.alias',
       'meta.interface entity.name.type.interface',
       // Captures type names in Go, but may need to be made more specific if
