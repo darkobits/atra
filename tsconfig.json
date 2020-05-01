@@ -14,9 +14,6 @@
         "src/*"
       ]
     },
-
-    // node-portaudio contains some typings that TypeScript yells at, so skip
-    // type-checking of libs.
     "skipLibCheck": true,
   }
 }
