@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.14](https://github.com/darkobits/astra/compare/v0.1.13...v0.1.14) (2020-05-01)
+
+
+### Bug Fixes
+
+* Target namespace identifiers correctly. ([e14e36e](https://github.com/darkobits/astra/commit/e14e36e1d63f5e6800d62bf8ea767fc44455e0bb))
+
 ### [0.1.13](https://github.com/darkobits/astra/compare/v0.1.12...v0.1.13) (2020-05-01)
 
 
