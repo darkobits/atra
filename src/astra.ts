@@ -250,11 +250,13 @@ export default ThemeFactory(theme => {
       // "of" in for-of loops. This *should* be italic.
       'keyword.operator.expression.of',
       'keyword.operator.expression.in',
+      'keyword.operator.expression.void',
       'keyword.import',
       'keyword.type',
       'keyword.function',
       'keyword.package',
       'keyword.struct',
+      'meta.enum.declaration storage.type.enum',
       // Covers most other kinds of control flow tokens.
       'keyword.control'
     ]
