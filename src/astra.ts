@@ -281,13 +281,22 @@ export default ThemeFactory(theme => {
       'meta.interface storage.type.interface',
       'meta.type storage.type.type',
       'meta.namespace storage.type.namespace',
-      'storage.type.function.arrow',
       // This scope captures the "declare" keyword in d.ts files.
       'storage.modifier',
       // Storage in C/C++, ie "int".
       'storage.type.c',
       // Storage in Go.
       'source.go storage.type'
+    ]
+  });
+
+  theme.tokenColors.add({
+    name: 'Fat Arrows',
+    settings: {
+      foreground: asForegroundColor(purple)
+    },
+    scope: [
+      'storage.type.function.arrow'
     ]
   });
 
