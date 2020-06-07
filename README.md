@@ -16,28 +16,33 @@ Astra is a theme for Visual Studio Code, heavily-inspired by the Base 16 Ocean D
 
 ## Install
 
-#### 1. Via Visual Studio Marketplace
+#### 1. Via NPM
+
+1. Run `npm install -g @darkobits/astra`.
+2. In VS Code, open the command palette and select `Developer: Reload Window`.
+2. In VS Code, open the command palette and select `Preferences: Color Theme`.
+3. Select `Astra` from the available options.
+
+> Note: If Astra does not appear in the list of color themes after installing
+> it, you may need to open the command palette and select `Reload Window`.
+
+#### 2. Via Visual Studio Marketplace
 
 Coming soon.
 
-#### 2. Manually
+## Contributing
 
-If you have Node and NPM installed on your system, and would like to customize and/or contribute to this project:
+If you have Node and NPM installed on your system, and would like to customize your installation of Astra or contribute to the project:
 
 1. Clone this repository to a folder of your choosing.
 2. Run `npm install`. This will build the project and symlink it into your VS Code themes directory.
-3. You may need to run the `Reload Window` command in VS Code.
-4. Astra should appear as an option when using the `Preferences: Color Theme` command.
+3. In VS Code, open the command palette and select `Developer: Reload Window`.
+4. In VS Code, open the command palette and select `Preferences: Color Theme`.
+5. Select `Astra (DEV)` from the available options.
 
 ## Screenshots
 
-![JavaScript](/screenshots/javascript.png)
-
-![Python](/screenshots/python.png)
-
-![Go](/screenshots/go.png)
-
-![C++](/screenshots/cpp.png)
+![JavaScript](https://user-images.githubusercontent.com/441546/83979434-0be70500-a8c3-11ea-8eba-1c711f4b4e66.png)
 
 ## Feedback
 
