@@ -1,6 +1,12 @@
 <a href="#top" id="top">
   <img src="https://user-images.githubusercontent.com/441546/44255341-99bba280-a1ba-11e8-81b9-dcf669d42306.png" style="max-width: 100%">
 </a>
+<p align="center">
+  <a href="https://www.npmjs.com/package/@darkobits/astra"><img src="https://img.shields.io/npm/v/@darkobits/astra.svg?style=flat-square"></a>
+  <a href="https://travis-ci.com/github/darkobits/astra"><img src="https://img.shields.io/travis/com/darkobits/astra?style=flat-square"></a>
+  <a href="https://david-dm.org/darkobits/astra"><img src="https://img.shields.io/david/darkobits/astra.svg?style=flat-square"></a>
+  <a href="https://conventionalcommits.org"><img src="https://img.shields.io/badge/conventional%20commits-1.0.0-FB5E85.svg?style=flat-square"></a>
+</p>
 
 Astra is a theme for Visual Studio Code, heavily-inspired by the Base 16 Ocean Dark palette.
 

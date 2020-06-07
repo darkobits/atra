@@ -1,7 +1,0 @@
-{
-	"extends": "@darkobits/ts-unified/dist/config/tslint.json",
-	"rules": {
-		"no-duplicate-imports": false,
-		"object-literal-key-quotes": false
-	}
-}

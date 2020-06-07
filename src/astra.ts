@@ -13,14 +13,33 @@ import ThemeFactory, {Color} from '@darkobits/vsct';
 
 // ----- Colors ----------------------------------------------------------------
 
-// Primary colors.
-import {gray0, gray1, gray2, gray3, gray4, gray5, gray6, gray7, gray8} from 'etc/colors';
-
-// Secondary colors.
-import {black, green, red, orange, yellow, blue, purple, rust, seafoam} from 'etc/colors';
-
-// Tertiary colors.
-import {HOT_PINK, darkRed, white, transparent} from 'etc/colors';
+import {
+  // Primary colors.
+  gray0,
+  gray1,
+  gray2,
+  gray3,
+  gray4,
+  gray5,
+  gray6,
+  gray7,
+  gray8,
+  // Secondary colors.
+  black,
+  green,
+  red,
+  orange,
+  yellow,
+  blue,
+  purple,
+  rust,
+  seafoam,
+  // Tertiary colors.
+  HOT_PINK,
+  darkRed,
+  white,
+  transparent
+} from 'etc/colors';
 
 
 /**
@@ -242,7 +261,9 @@ export default ThemeFactory(theme => {
     name: 'Keywords',
     settings: {
       foreground: asForegroundColor(purple),
-      fontStyle: useItalic ? 'italic' : undefined
+      fontStyle: {
+        italic: useItalic
+      }
     },
     scope: [
       // This captures operators (defined above), so use more specific scopes.
@@ -266,7 +287,9 @@ export default ThemeFactory(theme => {
     name: 'Storage',
     settings: {
       foreground: asForegroundColor(purple),
-      fontStyle: useItalic ? 'italic' : undefined
+      fontStyle: {
+        italic: useItalic
+      }
     },
     scope: [
       // Do not use 'storage' without a more specific scope here, as it may
@@ -411,7 +434,9 @@ export default ThemeFactory(theme => {
   theme.tokenColors.add({
     name: 'Bold',
     settings: {
-      fontStyle: 'bold',
+      fontStyle: {
+        bold: true
+      },
       foreground: asForegroundColor(yellow)
     },
     scope: [
@@ -423,7 +448,9 @@ export default ThemeFactory(theme => {
   theme.tokenColors.add({
     name: 'Italic',
     settings: {
-      fontStyle: 'italic',
+      fontStyle: {
+        italic: true
+      },
       foreground: asForegroundColor(purple)
     },
     scope: [
@@ -588,7 +615,9 @@ export default ThemeFactory(theme => {
     name: 'This',
     settings: {
       foreground: asForegroundColor(darkRed),
-      fontStyle: useItalic ? 'italic' : undefined
+      fontStyle: {
+        italic: useItalic
+      }
     },
     scope: 'variable.language.this'
   });
