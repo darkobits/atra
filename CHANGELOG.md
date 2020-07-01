@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.15](https://github.com/darkobits/astra/compare/v0.1.14...v0.1.15) (2020-07-01)
+
+
+### Bug Fixes
+
+* Fix various TypeScript-related token highlighting issues. ([7deaf12](https://github.com/darkobits/astra/commit/7deaf12842dd8e68708a797ae71a061342008802))
+
 ### [0.1.14](https://github.com/darkobits/astra/compare/v0.1.13...v0.1.14) (2020-05-01)
 
 
