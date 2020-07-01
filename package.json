@@ -18,10 +18,11 @@
     "vsct.config.js"
   ],
   "scripts": {
-    "build": "nps build",
-    "postbuild": "del themes && vsct compile",
     "postinstall": "if-dev 'nps prepare && vsct compile' && vsct install",
-    "prepublishOnly": "vsct compile",
+    "build": "nps build",
+    "postbuild": "nps postbuild",
+    "prepublishOnly": "nps prepublishOnly",
+    "prepare": "nps prepare",
     "start": "nps start"
   },
   "dependencies": {
@@ -29,10 +30,9 @@
     "@darkobits/vsct": "^0.3.6"
   },
   "devDependencies": {
-    "@darkobits/ts-unified": "5.0.0-beta.18",
-    "@types/node": "^14.0.11",
-    "del-cli": "^3.0.1",
-    "nps-utils": "^1.7.0",
-    "wait-on": "^5.0.1"
+    "@darkobits/ts-unified": "5.1.4",
+    "@types/node": "^14.0.14",
+    "@types/jest": "^26.0.3",
+    "del-cli": "^3.0.1"
   }
 }
