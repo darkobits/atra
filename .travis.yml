@@ -9,5 +9,4 @@ script:
 # after_success:
 #   - npx codacy-coverage -v < ./coverage/lcov.info
 cache:
-  directories:
-    - node_modules
+  npm: true
