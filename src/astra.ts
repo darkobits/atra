@@ -85,8 +85,6 @@ export default ThemeFactory(theme => {
       'string.template punctuation.definition.block',
       'string.template punctuation.terminator.statement',
       'string.template meta.object-literal.key',
-      // Resets the 'content' attribute in CSS rules.
-      'source.css meta.property-list entity.name.tag',
       'meta.interface meta.field.declaration variable.object.property'
     ]
   });
@@ -101,7 +99,10 @@ export default ThemeFactory(theme => {
       // it may inadvertently highlight JSDoc comments.
       'meta.definition variable',
       'variable.other.readwrite',
-      'entity.quasi variable.other'
+      'entity.quasi variable.other',
+      // Target variable names in interpolated string literals in CSS-in-JS
+      // contexts.
+      'meta.embedded.line variable.other.constant'
     ]
   });
 
@@ -201,7 +202,10 @@ export default ThemeFactory(theme => {
       'string punctuation.support.type.property-name.end',
       'string.json support.type.property-name',
       'string.template',
-      'constant.other.symbol'
+      'constant.other.symbol',
+      // TextMate incorrectly reports that "&" is an illegal character in quoted
+      // string literals in JSX (ex: HTML attributes).
+      'meta.jsx string.quoted invalid.illegal.bad-ampersand'
     ]
   });
 
@@ -589,6 +593,28 @@ export default ThemeFactory(theme => {
     scope: 'constant.other.color'
   });
 
+  theme.tokenColors.add({
+    name: 'Attribute Selector String Literals',
+    settings: {
+      foreground: asForegroundColor(green)
+    },
+    scope: [
+      // Targets the string literal in: `data-name["foo"]`.
+      'meta.attribute-selector'
+    ]
+  });
+
+  theme.tokenColors.add({
+    name: 'Attribute Selectors',
+    settings: {
+      foreground: asForegroundColor(gray7)
+    },
+    scope: [
+      'meta.attribute-selector entity.other.attribute-name.attribute',
+      'meta.attribute-selector punctuation'
+    ]
+  });
+
 
   // ----- Exotics / One-Offs --------------------------------------------------
 
@@ -733,7 +759,9 @@ export default ThemeFactory(theme => {
       'meta.return.type',
       'meta.return.type variable.object.property',
       'meta.type.annotation variable.object.property',
-      'meta.return.type keyword.operator'
+      'meta.return.type keyword.operator',
+      'keyword.operator.expression.typeof',
+      'keyword.operator.expression.keyof'
     ]
   });
 
