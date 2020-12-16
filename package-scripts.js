@@ -1,4 +1,4 @@
-module.exports = require('@darkobits/ts-unified/dist/config/package-scripts')(() => ({
+module.exports = require('@darkobits/ts').nps(() => ({
   scripts: {
     postbuild: 'del themes && vsct compile',
     prepublishOnly: 'vsct compile',
