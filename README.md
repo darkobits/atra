@@ -1,11 +1,11 @@
 <a href="#top" id="top">
-  <img src="https://user-images.githubusercontent.com/441546/44255341-99bba280-a1ba-11e8-81b9-dcf669d42306.png" style="max-width: 100%">
+  <img src="https://user-images.githubusercontent.com/441546/102321359-6c21c800-3f32-11eb-896e-bcef71c5b7b6.png" style="max-width: 100%">
 </a>
 <p align="center">
   <a href="https://www.npmjs.com/package/@darkobits/astra"><img src="https://img.shields.io/npm/v/@darkobits/astra.svg?style=flat-square"></a>
   <a href="https://travis-ci.com/github/darkobits/astra"><img src="https://img.shields.io/travis/com/darkobits/astra?style=flat-square"></a>
   <a href="https://david-dm.org/darkobits/astra"><img src="https://img.shields.io/david/darkobits/astra.svg?style=flat-square"></a>
-  <a href="https://conventionalcommits.org"><img src="https://img.shields.io/badge/conventional%20commits-1.0.0-FB5E85.svg?style=flat-square"></a>
+  <a href="https://github.com/conventional-changelog/standard-version"><img src="https://img.shields.io/badge/conventional%20commits-1.0.0-027dc6.svg?style=flat-square"></a>
 </p>
 
 Astra is a theme for Visual Studio Code, heavily-inspired by the Base 16 Ocean Dark palette.
@@ -22,9 +22,6 @@ Astra is a theme for Visual Studio Code, heavily-inspired by the Base 16 Ocean D
 2. In VS Code, open the command palette and select `Developer: Reload Window`.
 2. In VS Code, open the command palette and select `Preferences: Color Theme`.
 3. Select `Astra` from the available options.
-
-> Note: If Astra does not appear in the list of color themes after installing
-> it, you may need to open the command palette and select `Reload Window`.
 
 #### 2. Via Visual Studio Marketplace
 
@@ -53,8 +50,6 @@ If you have any issues, especially related to improper syntax highlighting, plea
 * [Base 16](https://github.com/chriskempson/base16)
 * [Spacegray / Base 16 Ocean Dark](https://github.com/ionutvmi/spacegray-vscode#base-16-ocean-dark)
 
-## &nbsp;
-<p align="center">
-  <br>
-  <img width="24" height="24" src="https://cloud.githubusercontent.com/assets/441546/25318539/db2f4cf2-2845-11e7-8e10-ef97d91cd538.png">
-</p>
+<a href="#top">
+  <img src="https://user-images.githubusercontent.com/441546/102315151-835bb800-3f28-11eb-8cf4-8bd74b94ddc3.png" style="max-width: 100%;">
+</a>
