@@ -27,10 +27,10 @@
   },
   "dependencies": {
     "@darkobits/is-dev": "^0.6.0",
-    "@darkobits/vsct": "^0.3.6"
+    "@darkobits/vsct": "^0.3.8"
   },
   "devDependencies": {
-    "@darkobits/ts": "^0.2.0",
+    "@darkobits/ts": "^0.2.2",
     "@types/color": "^3.0.1",
     "del-cli": "^3.0.1"
   }
