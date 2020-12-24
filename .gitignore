@@ -91,7 +91,9 @@ typings/
 dist
 
 # Theme files built by vsct.
-themes
+/themes
 
-
+# VS Code configuration for the project.
 /.vscode
+
+/NOTES.md

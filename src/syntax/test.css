@@ -1,0 +1,5 @@
+html {
+  margin: 1;
+  filter: contrast();
+  content: 'foo';
+}
