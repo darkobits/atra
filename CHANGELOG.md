@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.19](https://github.com/darkobits/astra/compare/v0.1.18...v0.1.19) (2021-05-12)
+
+
+### 🐞 Bug Fixes
+
+* Fix several colors. ([f4c606a](https://github.com/darkobits/astra/commit/f4c606ac438c1f9a5590983111955158f6e3ae1c))
+
 ### [0.1.18](https://github.com/darkobits/astra/compare/v0.1.17...v0.1.18) (2021-03-08)
 
 
