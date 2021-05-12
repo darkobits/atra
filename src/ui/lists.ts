@@ -1,5 +1,5 @@
 import { ThemeGenerator } from '@darkobits/vsct/dist/lib/theme';
-import { accentColor } from 'etc/color/common';
+import { accentColor, DEBUG_PINK } from 'etc/color/common';
 import gitHub from 'etc/color/github-dark';
 
 
@@ -17,7 +17,7 @@ export default (theme: ThemeGenerator) => {
 
     // Selected item when the list/tree has focus.
     'list.activeSelectionForeground': gitHub.textPrimary,
-    'list.activeSelectionBackground': gitHub.bgTertiary,
+    'list.activeSelectionBackground': gitHub.bgPrimary,
 
     // Focused/hovered item.
     'list.focusForeground': gitHub.scaleWhite,
@@ -37,10 +37,10 @@ export default (theme: ThemeGenerator) => {
 
     // Used to highlight matching fragments in search queries in the command
     // palette.
-    'list.highlightForeground': accentColor
+    'list.highlightForeground': accentColor,
 
     // Surprisingly, this color is used for notification backgrounds when one
     // of the notifications buttons (OK/Cancel) is being clicked.
-    // 'list.inactiveFocusBackground': gitHub.prStageClosedBg
+    'list.inactiveFocusBackground': DEBUG_PINK
   });
 };

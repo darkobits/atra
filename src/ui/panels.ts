@@ -16,6 +16,7 @@ export default (theme: ThemeGenerator) => {
 
     // Panel titles (tabs).
     'panelTitle.activeForeground': gitHub.textPrimary,
+
     // Underline accent for the active panel tab.
     'panelTitle.activeBorder': accentColor,
     'panelTitle.inactiveForeground': gitHub.textSecondary

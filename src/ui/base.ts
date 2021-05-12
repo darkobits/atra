@@ -9,6 +9,7 @@ export default (theme: ThemeGenerator) => {
     // Overall foreground color. This color is only used if not overridden by a
     // component.
     'foreground': gitHub.textPrimary,
+
     // Overall border color for focused elements. This color is only used if not
     // overridden by a component.
     //

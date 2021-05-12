@@ -6,7 +6,7 @@ import { Color } from '@darkobits/vsct';
 export default {
   // ----- GitHub: Grays -------------------------------------------------------
 
-  scaleWhite: new Color('#F0F6FC00'),
+  scaleWhite: new Color('#F0F6FC'),
   scaleGray1: new Color('#C9D1D9'),
   scaleGray2: new Color('#B1BAC4'),
   scaleGray3: new Color('#8B949E'),
