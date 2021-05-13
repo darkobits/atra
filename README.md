@@ -3,7 +3,7 @@
 </a>
 <p align="center">
   <a href="https://www.npmjs.com/package/@darkobits/astra"><img src="https://img.shields.io/npm/v/@darkobits/astra.svg?style=flat-square"></a>
-  <a href="https://travis-ci.com/github/darkobits/astra"><img src="https://img.shields.io/travis/com/darkobits/astra?style=flat-square"></a>
+  <a href="https://github.com/darkobits/astra/actions"><img src="https://img.shields.io/github/workflow/status/darkobits/astra/CI?style=flat-square"></a>
   <a href="https://depfu.com/github/darkobits/astra"><img src="https://img.shields.io/depfu/darkobits/astra?style=flat-square"></a>
   <a href="https://conventionalcommits.org"><img src="https://img.shields.io/static/v1?label=commits&message=conventional&style=flat-square&color=398AFB"></a>
 </p>
