@@ -6,7 +6,7 @@ module.exports = {
   outDir: 'themes',
   // Themes provided by this package.
   themes: [{
-    label: `${isDev ? '[DEV] ' : ''}Astra (Next)`,
+    label: `${isDev ? '[DEV] ' : ''}Astra`,
     path: 'dist/astra.js',
     uiTheme: 'vs-dark'
   }]
