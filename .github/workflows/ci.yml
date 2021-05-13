@@ -20,7 +20,7 @@ jobs:
         run: npm ci --ignore-scripts
       - name: Build Project
         run: npx nps build
-      - name: Run Tests
-        run: npx nps test.coverage
-      - name: Upload Coverage Report
-        run: bash <(curl -s https://codecov.io/bash)
+      # - name: Run Tests
+      #   run: npx nps test.coverage
+      # - name: Upload Coverage Report
+      #   run: bash <(curl -s https://codecov.io/bash)
