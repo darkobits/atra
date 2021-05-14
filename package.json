@@ -18,12 +18,13 @@
     "vsct.config.js"
   ],
   "scripts": {
-    "postinstall": "vsct install",
+    "postinstall": "if-not-dev vsct install",
     "build": "nps build",
-    "prepare": "nps prepare",
+    "prepare": "nps prepare && vsct install",
     "start": "nps start"
   },
   "dependencies": {
+    "@darkobits/is-dev": "^0.6.0",
     "@darkobits/vsct": "^0.4.2"
   },
   "devDependencies": {

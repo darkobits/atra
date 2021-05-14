@@ -1,4 +1,5 @@
-const isDev = process.env.NODE_ENV === 'development';
+const { default: isDev } = require('@darkobits/is-dev');
+
 
 module.exports = {
   // Output folder for compiled themes. N.B. This folder should be listed in our
@@ -6,7 +7,7 @@ module.exports = {
   outDir: 'themes',
   // Themes provided by this package.
   themes: [{
-    label: `${isDev ? '[DEV] ' : ''}Astra`,
+    label: `${isDev() ? '[DEV] ' : ''}Astra`,
     path: 'dist/astra.js',
     uiTheme: 'vs-dark'
   }]
