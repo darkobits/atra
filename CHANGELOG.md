@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.21](https://github.com/darkobits/astra/compare/v0.1.20...v0.1.21) (2021-05-14)
+
+
+### 🏗 Chores
+
+* **ci:** Update CI configuration. ([a5836a6](https://github.com/darkobits/astra/commit/a5836a65b18f29af03885c3d84118cb223829427))
+* Add GitHub Actions. ([1cd461c](https://github.com/darkobits/astra/commit/1cd461ca219ecca89abec5b2cf9beb76e637afed))
+
+
+### 🐞 Bug Fixes
+
+* Add is-dev to ensure correct execution order of lifecycle scripts. ([682a6b6](https://github.com/darkobits/astra/commit/682a6b6649c0e2fdf9e92423e9e0b27db7000a66))
+
 ### [0.1.20](https://github.com/darkobits/astra/compare/v0.1.19...v0.1.20) (2021-05-13)
 
 
