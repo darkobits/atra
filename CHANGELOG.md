@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.23](https://github.com/darkobits/astra/compare/v0.1.22...v0.1.23) (2021-05-20)
+
+
+### 🏗 Chores
+
+* Install dev builds as separate theme. ([246e61a](https://github.com/darkobits/astra/commit/246e61abdabf05a73b5202ac3af27598bc72bf0e))
+
 ### [0.1.22](https://github.com/darkobits/astra/compare/v0.1.21...v0.1.22) (2021-05-20)
 
 
