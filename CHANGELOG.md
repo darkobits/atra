@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.22](https://github.com/darkobits/astra/compare/v0.1.21...v0.1.22) (2021-05-20)
+
+
+### 🐞 Bug Fixes
+
+* Don't apply DEV tag when building for a publish. ([1d4cb6b](https://github.com/darkobits/astra/commit/1d4cb6b11911613d67acc99511c3bce4e7886d0b))
+* **ui:** Fix various list colors. ([656b30b](https://github.com/darkobits/astra/commit/656b30bc38f90f430426bbdecc96fa58b49a4538))
+
 ### [0.1.21](https://github.com/darkobits/astra/compare/v0.1.20...v0.1.21) (2021-05-14)
 
 
