@@ -21,10 +21,12 @@
     "postinstall": "if-not-dev vsct install",
     "build": "nps build",
     "prepare": "nps prepare && vsct install",
-    "start": "nps start"
+    "start": "nps start",
+    "prepublishOnly": "IS_PUBLISH=true nps build"
   },
   "dependencies": {
-    "@darkobits/is-dev": "^0.6.0",
+    "@darkobits/env": "^1.3.4",
+    "@darkobits/is-dev": "^0.6.2",
     "@darkobits/vsct": "^0.4.2"
   },
   "devDependencies": {

@@ -1,4 +1,9 @@
-const { default: isDev } = require('@darkobits/is-dev');
+const env = require('@darkobits/env');
+const isDev = require('@darkobits/is-dev');
+
+
+const isPublish = env('IS_PUBLISH');
+const useDevTag = isDev() && !isPublish;
 
 
 module.exports = {
@@ -7,7 +12,7 @@ module.exports = {
   outDir: 'themes',
   // Themes provided by this package.
   themes: [{
-    label: `${isDev() ? '[DEV] ' : ''}Astra`,
+    label: `${useDevTag ? '[DEV] ' : ''}Astra`,
     path: 'dist/astra.js',
     uiTheme: 'vs-dark'
   }]
