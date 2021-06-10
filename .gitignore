@@ -91,7 +91,7 @@ typings/
 dist
 
 # Theme files built by vsct.
-/themes
+/extension
 
 # VS Code configuration for the project.
 /.vscode

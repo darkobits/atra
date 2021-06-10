@@ -1,22 +1,13 @@
 const env = require('@darkobits/env');
-const isDev = require('@darkobits/is-dev');
-
-
-const isPublish = env('IS_PUBLISH');
-const useDevTag = isDev() && !isPublish;
-
+const useDevTag = !env('IS_PUBLISH');
 
 module.exports = {
-  // Output folder for compiled themes. N.B. This folder should be listed in our
-  // package.json "files" array.
-  outDir: 'themes',
-  // Directory name to use in the VS Code extensions folder.
-  installDir: `darkobits.astra${useDevTag ? '-dev' : ''}`,
-  // Themes provided by this package.
-  themes: [{
-    label: `${useDevTag ? '[DEV] ' : ''}Astra`,
-    // outputFilename: useDevTag ? 'astra-dev' : undefined,
-    path: 'dist/astra.js',
-    uiTheme: 'vs-dark'
-  }]
+  // Use a custom "name" in extension manifest.
+  name: useDevTag ? 'astra-dev' : 'astra',
+  // Use a custom "displayName" in extension manifest.
+  displayName: useDevTag ? 'Astra (Dev)' : 'Astra {version}',
+  outDir: 'extension',
+  themes: [
+    { path: './dist/astra.js' }
+  ]
 };

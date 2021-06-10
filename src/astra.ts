@@ -10,6 +10,7 @@
  * - https://gist.github.com/lol-russo/1c7a0b958be4b9434c5a120f24d5e7c3
  *
  */
+import env from '@darkobits/env';
 import ThemeFactory from '@darkobits/vsct';
 
 import syntaxClasses from 'syntax/classes';
@@ -48,6 +49,10 @@ import uiWindowChrome from 'ui/window-chrome';
 
 export default ThemeFactory(theme => {
   const useItalic = true;
+  const useDevTag = !env('IS_PUBLISH');
+
+  theme.set('label', `Astra${useDevTag ? ' (Dev)' : ''}`);
+  theme.set('uiTheme', 'vs-dark');
 
   syntaxClasses(theme, useItalic);
   syntaxComments(theme, useItalic);
