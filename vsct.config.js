@@ -1,5 +1,5 @@
 const env = require('@darkobits/env');
-const useDevTag = !env('IS_PUBLISH');
+const useDevTag = env.eq('IS_PUBLISH', false);
 
 module.exports = {
   // Use a custom "name" in extension manifest.

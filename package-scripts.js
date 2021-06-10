@@ -4,7 +4,7 @@ module.exports = require('@darkobits/ts').nps(() => ({
     postbuild: 'vsct compile',
     start: {
       description: 'Continuously re-build the project and theme file.',
-      script: 'nps build.watch & vsct start'
+      script: 'IS_PUBLISH=false nps build.watch & vsct start'
     }
   }
 }));

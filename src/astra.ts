@@ -49,7 +49,7 @@ import uiWindowChrome from 'ui/window-chrome';
 
 export default ThemeFactory(theme => {
   const useItalic = true;
-  const useDevTag = !env('IS_PUBLISH');
+  const useDevTag = env.eq('IS_PUBLISH', false);
 
   theme.set('label', `Astra${useDevTag ? ' (Dev)' : ''}`);
   theme.set('uiTheme', 'vs-dark');
