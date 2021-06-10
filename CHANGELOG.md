@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.26](https://github.com/darkobits/astra/compare/v0.1.25...v0.1.26) (2021-06-10)
+
+
+### 🏗 Chores
+
+* Update VSCT. ([96de9c6](https://github.com/darkobits/astra/commit/96de9c6f3604f2fcf861d2ec7224879921b2e32b))
+
+
+### 🐞 Bug Fixes
+
+* Update list focus background color. ([e4ef28d](https://github.com/darkobits/astra/commit/e4ef28df17a74289991244064c45285a63ac586b))
+
 ### [0.1.25](https://github.com/darkobits/astra/compare/v0.1.24...v0.1.25) (2021-05-20)
 
 
