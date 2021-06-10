@@ -21,7 +21,7 @@ export default (theme: ThemeGenerator) => {
 
     // Focused/hovered item.
     'list.focusForeground': gitHub.scaleWhite,
-    'list.focusBackground': gitHub.bgSecondary,
+    'list.focusBackground': gitHub.bgTertiary,
 
     // Hovered item.
     'list.hoverForeground': gitHub.scaleWhite,
