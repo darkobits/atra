@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.27](https://github.com/darkobits/astra/compare/v0.1.26...v0.1.27) (2021-06-15)
+
+
+### 🏗 Chores
+
+* Update VSCT. ([207a28d](https://github.com/darkobits/astra/commit/207a28d157bd3eb8ad99bf76288b95f6ba8d230f))
+
 ### [0.1.26](https://github.com/darkobits/astra/compare/v0.1.25...v0.1.26) (2021-06-10)
 
 
