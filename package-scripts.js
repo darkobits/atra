@@ -5,6 +5,7 @@ module.exports = require('@darkobits/ts').nps(() => ({
     start: {
       description: 'Continuously re-build the project and theme file.',
       script: 'IS_PUBLISH=false nps build.watch & vsct start'
-    }
+    },
+    publish: 'npm publish ./extension'
   }
 }));
