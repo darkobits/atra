@@ -16,13 +16,12 @@
   "scripts": {
     "build": "nps build",
     "prepare": "nps prepare",
-    "start": "nps start",
-    "prepublishOnly": "IS_PUBLISH=true nps build"
+    "start": "nps start"
   },
   "devDependencies": {
     "@darkobits/env": "^1.3.4",
     "@darkobits/ts": "^0.3.3",
-    "@darkobits/vsct": "^0.9.0",
+    "@darkobits/vsct": "^0.10.0",
     "@types/color": "^3.0.1"
   }
 }
