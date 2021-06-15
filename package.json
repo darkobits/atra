@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@darkobits/ts": "^0.3.3",
-    "@darkobits/vsct": "^0.11.0",
+    "@darkobits/vsct": "^0.11.1",
     "@types/color": "^3.0.1"
   }
 }
