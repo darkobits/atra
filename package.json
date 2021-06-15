@@ -11,7 +11,8 @@
     "url": "https://github.com/darkobits/astra"
   },
   "engines": {
-    "vscode": "^1.50.0"
+    "vscode": "^1.50.0",
+    "node": ">=12.0.0"
   },
   "scripts": {
     "build": "nps build",
@@ -19,9 +20,8 @@
     "start": "nps start"
   },
   "devDependencies": {
-    "@darkobits/env": "^1.3.4",
     "@darkobits/ts": "^0.3.3",
-    "@darkobits/vsct": "^0.10.0",
+    "@darkobits/vsct": "^0.11.0",
     "@types/color": "^3.0.1"
   }
 }

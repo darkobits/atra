@@ -1,17 +1,10 @@
-const env = require('@darkobits/env');
-const isPublish = env.eq('IS_PUBLISH', true);
-
-
-module.exports = ({ json }) => ({
-  // Use a custom "name" in extension manifest.
-  name: isPublish ? 'astra' : 'astra-dev',
-  // Use a custom "displayName" in extension manifest.
-  displayName: isPublish ? `Astra v${json.version}` : 'Astra (Dev)',
+module.exports = ({ json, isDev }) => ({
   outDir: 'extension',
+  displayName: isDev ? 'Astra (Dev)' : `Astra v${json.version}`,
   themes: [
     {
       path: './dist/astra.js',
-      label: isPublish ? `Astra v${json.version}` : 'Astra (Dev)',
+      label: isDev ? 'Astra (Dev)' : `Astra v${json.version}`,
       uiTheme: 'vs-dark'
     }
   ]
