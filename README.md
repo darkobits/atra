@@ -31,6 +31,7 @@ A theme for Visual Studio Code. Inspired by the GitHub dark theme.
 
 If you have any issues, especially related to improper syntax highlighting, please [open an Issue](https://github.com/darkobits/astra/issues/new) on GitHub.
 
+<br />
 <a href="#top">
   <img src="https://user-images.githubusercontent.com/441546/118062198-4ff04e80-b34b-11eb-87f3-406a345d5526.png" style="max-width: 100%;">
 </a>
